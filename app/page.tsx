@@ -12,6 +12,7 @@ import ProcessTimeline from '@/components/process-timeline';
 import SectionHeading from '@/components/section-heading';
 import Testimonials from '@/components/testimonials';
 import { portfolioCategories } from '@/lib/portfolio-data';
+import BuilderPage from '../components/builder/BuilderPage';
 
 const trustWords = ['Branding', 'Design', 'Motion', 'Websites', 'Strategy', 'Marketing'];
 
@@ -43,7 +44,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
+    <BuilderPage>
+      <div>
       <section className="relative overflow-hidden px-4 pt-28 md:px-6 lg:pt-32">
         <div className="hero-grid relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-between overflow-hidden rounded-[40px] border border-black/[0.06] bg-[linear-gradient(180deg,rgba(6,27,58,0.96),rgba(7,17,31,0.92))] px-5 py-8 text-white shadow-[0_40px_120px_rgba(7,17,31,0.28)] md:px-10 lg:px-14">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-[68%] bg-[linear-gradient(90deg,rgba(0,0,0,0.38),rgba(0,0,0,0.16)_45%,transparent_100%)]" />
@@ -216,6 +218,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </BuilderPage>
   );
 }

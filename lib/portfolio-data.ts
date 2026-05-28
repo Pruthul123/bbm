@@ -40,6 +40,10 @@ export type PortfolioCategory = {
   layout: 'analytics' | 'masonry' | 'cinematic' | 'browser' | 'editorial' | 'social';
   summary: string;
   projects: PortfolioProject[];
+  comingSoon?: {
+    headline: string;
+    subtext: string;
+  };
 };
 
 const imageSets = {
@@ -52,29 +56,30 @@ const imageSets = {
     ]
   },
   clinic: {
-    coverImage: 'https://images.unsplash.com/photo-1588776814546-cd3b0b9c6d1f?auto=format&fit=crop&w=1400&q=80',
+    coverImage: 'https://i.pinimg.com/originals/83/e2/e8/83e2e8374323ce457cdad49660a9e0f0.jpg',
     images: [
-      'https://images.unsplash.com/photo-1588776814546-cd3b0b9c6d1f?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1400&q=80'
+      'https://i.pinimg.com/originals/77/0b/0f/770b0fcfc3183574e4d295d932dd1dde.png',
+      'https://i.pinimg.com/1200x/53/dd/0e/53dd0e17824d448062949f9bb398cb1a.jpg',
+      'https://i.pinimg.com/originals/96/ff/26/96ff263ac83c03281aa2fc2e2fdbb081.jpg'
     ]
   },
   identity: {
-    coverImage: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80',
+    coverImage: 'https://i.pinimg.com/originals/5c/e2/55/5ce255f8d6f19cb57c4855e5b8084ac0.png',
     images: [
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80'
+      'https://i.pinimg.com/originals/a6/d6/8f/a6d68f7fbe77c27e0850af3b9a061a39.png',
+      'https://i.pinimg.com/originals/8c/6c/c3/8c6cc38c3a2dcda5fee7d69c96c81edf.png',
+      'https://i.pinimg.com/originals/c3/a4/54/c3a45493ee28100715180c4c52be5fcb.png'
     ]
   },
-  posters: {
-    coverImage: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=80',
+  eddiesLiquor: {
+    coverImage: 'https://i.pinimg.com/1200x/50/a2/2e/50a22e837006da916ae1ffefef79abfa.jpg',
     images: [
-      'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1400&q=80'
+      'https://i.pinimg.com/1200x/a9/f4/42/a9f442ac47468f0b67ddf0cb86725851.jpg',
+      'https://i.pinimg.com/originals/5c/ce/6b/5cce6b751d464cd509b382a5f77b67f7.jpg',
+      'https://i.pinimg.com/originals/66/28/5e/66285e531a83ddf66d4a3fae7f413724.jpg'
     ]
   },
+
   motion: {
     coverImage: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=80',
     images: [
@@ -139,6 +144,15 @@ const imageSets = {
       'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80'
     ]
   }
+  ,
+  architecture: {
+    coverImage: 'https://i.pinimg.com/originals/06/0a/77/060a77b7c1ddcb8f6c28bf8d2e902074.png',
+    images: [
+      'https://i.pinimg.com/originals/90/f7/d7/90f7d702765e60083129e6be8eee7505.png',
+      'https://i.pinimg.com/originals/f6/a5/cd/f6a5cdfd9fd9907df6a1eee4dae4fc95.png',
+      'https://i.pinimg.com/originals/f3/1c/bb/f31cbb04dfa7d991c08e2e8e874d87bf.png'
+    ]
+  }
 } as const;
 
 export const portfolioCategories: PortfolioCategory[] = [
@@ -192,42 +206,42 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         category: 'digital-marketing',
-        slug: 'clinic-lead-engine',
-        title: 'Clinic Lead Engine',
-        client: 'Vera Dental',
+        slug: 'lilac-cafe-growth-system',
+        title: 'Lilac Cafe Growth System',
+        client: 'Lilac Cafe',
         year: '2025',
         ...imageSets.clinic,
-        summary: 'An acquisition system for a premium dental clinic focused on high-intent search, authority content, and conversion flows.',
-        problem: 'Lead quality was inconsistent and the site felt too generic for the premium market.',
-        goals: ['Raise qualified leads', 'Increase booked consultations', 'Improve brand authority'],
-        challenges: ['High cost per lead', 'Thin service education', 'Weak trust signals'],
+        summary: 'A premium customer acquisition and branding system designed for a modern luxury café focused on foot traffic, community engagement, and repeat customers.',
+        problem: 'Lilac Cafe needed stronger brand positioning and a more premium customer experience both online and in-store.',
+        goals: ['Increase walk-in customers', 'Improve Instagram engagement', 'Build premium café identity', 'Increase repeat visitors'],
+        challenges: ['Weak local brand visibility', 'Inconsistent social media presence', 'Low customer retention', 'Generic café positioning'],
         strategy: {
-          marketing: 'Focused on intent-heavy search terms and audience-specific landing pages.',
-          design: 'Built a calmer, high-trust visual system with clinical restraint and premium contrast.',
-          growth: 'Integrated lead forms, call tracking, and consult funnel measurement.',
-          content: 'Published expert-led articles and before/after stories to support decision-making.'
+          marketing: 'Focused on Instagram-driven campaigns, local discovery, and lifestyle-focused content.',
+          design: 'Created a warm premium visual identity with elegant café storytelling and refined typography.',
+          growth: 'Implemented loyalty offers, event campaigns, and customer retention funnels.',
+          content: 'Produced cinematic café photography, menu highlights, and lifestyle reels.'
         },
         process: [
-          { title: 'Research', copy: 'Mapped patient questions, keywords, and competing service narratives.' },
-          { title: 'Build', copy: 'Created service-focused landing pages and authority content.' },
-          { title: 'Scale', copy: 'Raised spend on top-performing keywords and retargeting sequences.' }
+          { title: 'Research', copy: 'Analyzed customer behavior, local café competitors, and audience preferences.' },
+          { title: 'Build', copy: 'Designed premium landing pages, menu showcases, and social media campaigns.' },
+          { title: 'Scale', copy: 'Expanded reach through influencer collaborations, local ads, and seasonal campaigns.' }
         ],
         visuals: [
-          { title: 'Lead Funnel', copy: 'Conversion tunnel with appointment and call sources.' },
-          { title: 'Authority Cards', copy: 'Educational content blocks with a premium medical tone.' },
-          { title: 'Result Snapshot', copy: 'A clean KPI layout built around booked consultations.' }
+          { title: '107K+ Organic Views', copy: 'Reels that reached beyond followers and turned content into discovery.' },
+          { title: 'Creative Food Campaigns', copy: 'Scroll-stopping social media graphics built for modern café branding.' },
+          { title: 'Sales Growth Strategy', copy: 'Creative campaigns and performance-driven content designed to boost reach, orders, and revenue.' }
         ],
         results: [
-          { label: 'Consults', value: '+39%', detail: 'Booked consultation lift across core services' },
-          { label: 'CPL', value: '-27%', detail: 'Lower cost per lead after optimization' },
-          { label: 'Organic Leads', value: '+22%', detail: 'Growth from authority content and search' }
+          { label: 'Foot Traffic', value: '+41%', detail: 'Increase in walk-in customers' },
+          { label: 'Engagement', value: '+63%', detail: 'Growth in Instagram interactions' },
+          { label: 'Return Customers', value: '+28%', detail: 'Increase in repeat customer visits' }
         ],
         testimonial: {
-          quote: 'We started getting better inquiries almost immediately. The experience looked more trustworthy, and the leads matched that perception.',
-          author: 'Dr. Elias Moore',
-          role: 'Principal Dentist, Vera Dental'
+          quote: 'The new visual identity and local campaigns made our café feel like a destination. We saw immediate increases in visits and a more engaged community.',
+          author: 'Maya Arora',
+          role: 'Owner, Lilac Cafe'
         },
-        highlight: 'Search intent, authority, consult flow.'
+        highlight: 'Local discovery, loyalty, premium identity.'
       }
     ]
   },
@@ -281,42 +295,42 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         category: 'graphic-design',
-        slug: 'event-poster-series',
-        title: 'Event Poster Series',
-        client: 'Flux Arts Week',
+        slug: 'eddies-liquor-campaign',
+        title: "Eddie's Liquor 'N' More Campaign",
+        client: "Eddie's Liquor 'N' More",
         year: '2025',
-        ...imageSets.posters,
-        summary: 'A poster universe with variable typography, layered gradients, and sharp festival energy.',
-        problem: 'The event needed a more recognizable visual presence across street and social placements.',
-        goals: ['Improve recognition', 'Create poster variants', 'Build a memorable launch kit'],
-        challenges: ['Multiple venues', 'Fast promo windows', 'Mixed audience segments'],
+        ...imageSets.eddiesLiquor,
+        summary: 'A cinematic liquor-store campaign blending whiskey, wine, and premium retail storytelling into a polished social-first visual system.',
+        problem: 'The store needed a sharper premium identity that could stand out in a crowded retail market and make its promotional offers feel more elevated.',
+        goals: ['Increase in-store awareness', 'Improve weekly social engagement', 'Promote premium bottle selections', 'Strengthen brand perception'],
+        challenges: ['Competitive local market', 'Undifferentiated retail messaging', 'Mixed product categories', 'Need for a more premium visual tone'],
         strategy: {
-          marketing: 'Made each poster feel like part of a larger collectible system.',
-          design: 'Used asymmetric type blocks and layered abstract forms for impact.',
-          growth: 'Adjusted poster variants by venue and channel.',
-          content: 'Prepared social crops, motion snippets, and teaser cards.'
+          marketing: 'Positioned the store as a destination for curated whiskey, wine, and limited-run bottle drops through refined campaign storytelling.',
+          design: 'Built a dark luxe visual language with editorial type, reflective highlights, and rich contrast to evoke a high-end bottle shop experience.',
+          growth: 'Designed a repeatable promotion system for weekly specials, holiday features, and new-arrival spotlights across social channels.',
+          content: 'Created cinematic social assets, product highlights, and retail promo layouts that felt more like premium liquor advertising than standard store marketing.'
         },
         process: [
-          { title: 'Concept', copy: 'Mapped the event’s visual voice and format needs.' },
-          { title: 'Iteration', copy: 'Built poster variations for different placements.' },
-          { title: 'Deployment', copy: 'Rolled out print, social, and motion versions together.' }
+          { title: 'Positioning', copy: 'Defined the store as a premium retail destination with a stronger visual point of view.' },
+          { title: 'Campaign Design', copy: 'Developed modular layouts for whiskey features, wine promotions, and seasonal bottle spotlights.' },
+          { title: 'Rollout', copy: 'Applied the system across social, in-store promo graphics, and launch announcements.' }
         ],
         visuals: [
-          { title: 'Poster Wall', copy: 'A stacked gallery of print-ready variants.' },
-          { title: 'Teaser Cards', copy: 'Small-format social crops with high-contrast type.' },
-          { title: 'Motion Cuts', copy: 'Animated event reveals for stories and reels.' }
+          { title: 'Bottle Spotlight', copy: 'Hero layouts for premium whiskey and wine promotions with rich, cinematic framing.' },
+          { title: 'Promo Cards', copy: 'Social tiles designed to make weekly offers feel elevated and collectible.' },
+          { title: 'Retail Atmosphere', copy: 'Dark, polished campaign visuals that brought a luxury retail mood to the store.' }
         ],
         results: [
-          { label: 'Attendance Interest', value: '+34%', detail: 'More event page visits after launch' },
-          { label: 'Social Reach', value: '+52%', detail: 'Expanded campaign visibility' },
-          { label: 'Poster Recall', value: 'High', detail: 'Improved recognition across placements' }
+          { label: 'Campaign Reach', value: '+57%', detail: 'More visibility across social and local audience channels' },
+          { label: 'Store Visits', value: '+33%', detail: 'Lift in foot traffic during campaign weeks' },
+          { label: 'Engagement Rate', value: '+46%', detail: 'Stronger interaction with premium product posts' }
         ],
         testimonial: {
-          quote: 'The posters looked like art objects. People were sharing them before the event even opened.',
-          author: 'Iris Nolan',
-          role: 'Program Lead, Flux Arts Week'
+          quote: 'The campaign made the store feel like a premium brand, not just a liquor shop. Customers immediately noticed the difference online and in person.',
+          author: 'Marcus Vale',
+          role: 'Owner, Eddie\'s Liquor \'N\' More'
         },
-        highlight: 'Posters, print, teasers.'
+        highlight: 'Whiskey campaigns, wine promotions, luxury retail storytelling.'
       }
     ]
   },
@@ -459,42 +473,101 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         category: 'web-development',
-        slug: 'startup-launch-platform',
-        title: 'Startup Launch Platform',
-        client: 'Orbit Systems',
-        year: '2025',
-        ...imageSets.startup,
-        summary: 'A motion-led launch platform built around product storytelling and investor clarity.',
-        problem: 'The startup needed a digital presence that could impress both customers and investors.',
-        goals: ['Clarify product value', 'Increase signups', 'Strengthen credibility'],
-        challenges: ['Complex product language', 'Short launch window', 'Multiple stakeholder needs'],
+        slug: 'maxo-architecture-platform',
+        title: 'Luxury Architecture Website Redesign',
+        client: 'MAXO Architects',
+        year: '2026',
+        ...imageSets.architecture,
+        summary: 'A cinematic architecture platform crafted to showcase modern spatial design, premium residential projects, and immersive visual storytelling.',
+
+        problem: 'The studio needed a refined digital presence that matched the sophistication and architectural precision of its real-world projects.',
+
+        goals: [
+          'Elevate premium brand perception',
+          'Showcase architectural projects through immersive storytelling',
+          'Improve mobile browsing experience',
+          'Create a modern luxury portfolio experience'
+        ],
+
+        challenges: [
+          'Presenting large-scale projects without visual clutter',
+          'Balancing minimalism with detailed project storytelling',
+          'Maintaining fast performance with high-resolution imagery'
+        ],
+
         strategy: {
-          marketing: 'Created a website that acted as both pitch deck and conversion asset.',
-          design: 'Used layered motion, clean sections, and premium whitespace.',
-          growth: 'Built clear signup points and social proof blocks.',
-          content: 'Focused on product demos, metrics, and trust-building content.'
+          marketing: 'Positioned the website as a digital architecture journal that builds trust through visual authority and spatial storytelling.',
+
+          design: 'Used editorial layouts, cinematic whitespace, monochrome palettes, and immersive fullscreen imagery inspired by luxury architecture publications.',
+
+          growth: 'Optimized navigation flow, mobile responsiveness, and inquiry touchpoints to increase premium client engagement.',
+
+          content: 'Structured project showcases around architectural philosophy, material details, spatial experience, and visual narratives.'
         },
+
         process: [
-          { title: 'Discovery', copy: 'Defined narrative, users, and launch objectives.' },
-          { title: 'System Build', copy: 'Implemented a scalable component library and motion system.' },
-          { title: 'Refine', copy: 'Polished transitions and ensured responsive consistency.' }
+          {
+            title: 'Spatial Discovery',
+            copy: 'Mapped the studio’s design language, project hierarchy, and luxury positioning strategy.'
+          },
+
+          {
+            title: 'Editorial System',
+            copy: 'Built a refined visual system using modular grids, architectural spacing, and immersive transitions.'
+          },
+
+          {
+            title: 'Experience Refinement',
+            copy: 'Optimized scrolling behavior, gallery interactions, and responsive layouts for a premium browsing experience.'
+          }
         ],
+
         visuals: [
-          { title: 'Device Stack', copy: 'Browser and mobile mockups positioned together.' },
-          { title: 'Feature Flow', copy: 'Scrolling sections that guide the product story.' },
-          { title: 'Proof Blocks', copy: 'Metrics and testimonials used as trust signals.' }
+          {
+            title: 'Fullscreen Architecture Showcase',
+            copy: 'Large cinematic project imagery designed to create a gallery-like browsing experience.'
+          },
+
+          {
+            title: 'Editorial Project Layouts',
+            copy: 'Minimal typography and modular grids used to highlight architectural detail and spatial composition.'
+          },
+
+          {
+            title: 'Immersive Mobile Experience',
+            copy: 'Responsive layouts crafted to preserve luxury presentation across all screen sizes.'
+          }
         ],
+
         results: [
-          { label: 'Signups', value: '+46%', detail: 'Growth after the launch platform went live' },
-          { label: 'Time on Site', value: '+35%', detail: 'Stronger engagement with product sections' },
-          { label: 'Investor Confidence', value: 'High', detail: 'Presentation quality improved stakeholder response' }
+          {
+            label: 'Client Inquiries',
+            value: '+41%',
+            detail: 'Increase in premium residential project inquiries after launch'
+          },
+
+          {
+            label: 'Engagement Time',
+            value: '+36%',
+            detail: 'Users spent longer exploring architecture case studies and galleries'
+          },
+
+          {
+            label: 'Brand Perception',
+            value: 'Elevated',
+            detail: 'The redesigned experience strengthened the studio’s luxury positioning'
+          }
         ],
+
         testimonial: {
-          quote: 'The site carried the pitch for us. It felt polished enough for customers and credible enough for investors.',
-          author: 'Jordan Kim',
-          role: 'Co-founder, Orbit Systems'
+          quote: 'The website now reflects the same precision, calmness, and sophistication that define our architectural work. Every interaction feels intentional.',
+
+          author: 'Max Patel',
+
+          role: 'Founder, MAXO Architects'
         },
-        highlight: 'Pitch-meets-product, motion-first, scalable.'
+
+        highlight: 'Editorial architecture storytelling, cinematic galleries, luxury digital experience.'
       }
     ]
   },
@@ -506,86 +579,11 @@ export const portfolioCategories: PortfolioCategory[] = [
     intro: 'Logo systems, typography shows, packaging mockups, and identity storytelling.',
     layout: 'editorial',
     summary: 'Premium identity systems with tactile applications and a clear brand point of view.',
-    projects: [
-      {
-        category: 'branding',
-        slug: 'premium-salon-rebrand',
-        title: 'Premium Salon Rebrand',
-        client: 'Aurelia House',
-        year: '2026',
-        ...imageSets.salon,
-        summary: 'A sensual identity system for a modern salon combining elegance, warmth, and clarity.',
-        problem: 'The salon’s brand felt soft but not distinctive.',
-        goals: ['Create a signature look', 'Support premium pricing', 'Improve brand recall'],
-        challenges: ['Generic beauty category', 'Low identity separation', 'Mixed application needs'],
-        strategy: {
-          marketing: 'Positioned the salon as a premium destination rather than a generic service provider.',
-          design: 'Built a letterform-led identity with elegant spacing and tactile textures.',
-          growth: 'Prepared launch assets and booking touchpoints for consistency.',
-          content: 'Developed social templates, packaging labels, and campaign systems.'
-        },
-        process: [
-          { title: 'Brand Story', copy: 'Defined the emotional tone and visual anchors.' },
-          { title: 'Identity Build', copy: 'Created logos, typography rules, and material references.' },
-          { title: 'Applications', copy: 'Applied the identity to launch and booking assets.' }
-        ],
-        visuals: [
-          { title: 'Logo Suite', copy: 'Logotype variations and spacing rules.' },
-          { title: 'Packaging', copy: 'Product labels and bags with subtle premium finishes.' },
-          { title: 'Typography Wall', copy: 'Large editorial type layout for brand storytelling.' }
-        ],
-        results: [
-          { label: 'Recall', value: '+28%', detail: 'Improved audience recognition after launch' },
-          { label: 'Bookings', value: '+19%', detail: 'More premium appointments from new positioning' },
-          { label: 'Brand Alignment', value: 'Strong', detail: 'Unified look across all touchpoints' }
-        ],
-        testimonial: {
-          quote: 'The identity feels mature and luxurious. It made the salon look like a destination, not just another service business.',
-          author: 'Elena Marlow',
-          role: 'Founder, Aurelia House'
-        },
-        highlight: 'Typography, packaging, identity rollouts.'
-      },
-      {
-        category: 'branding',
-        slug: 'tech-brand-refresh',
-        title: 'Tech Brand Refresh',
-        client: 'Vector Loop',
-        year: '2025',
-        ...imageSets.refresh,
-        summary: 'A sharper identity refresh that brought clarity, confidence, and a more premium digital tone.',
-        problem: 'The old branding lacked a strong product-ready personality.',
-        goals: ['Clarify the brand voice', 'Modernize the visuals', 'Prepare for growth'],
-        challenges: ['Legacy visual clutter', 'Weak hierarchy', 'Need for flexible systems'],
-        strategy: {
-          marketing: 'Simplified the story and made the product message easier to absorb.',
-          design: 'Introduced a cleaner logo, type scale, and dark-premium palette.',
-          growth: 'Created an identity system that could scale across launch, product, and social assets.',
-          content: 'Built templates for announcements, feature highlights, and thought leadership.'
-        },
-        process: [
-          { title: 'Audit', copy: 'Reviewed identity points across digital and sales touchpoints.' },
-          { title: 'Refresh', copy: 'Updated the visual system with disciplined hierarchy.' },
-          { title: 'Rollout', copy: 'Delivered templates and launch guidance for the team.' }
-        ],
-        visuals: [
-          { title: 'System Sheet', copy: 'Identity rules and usage examples.' },
-          { title: 'UI Mockups', copy: 'A product-inspired visual language for the site.' },
-          { title: 'Social Stack', copy: 'Templates that feel cohesive across content.' }
-        ],
-        results: [
-          { label: 'Visual Clarity', value: '+100%', detail: 'More coherent communication across channels' },
-          { label: 'Brand Confidence', value: 'High', detail: 'Internal team adoption improved immediately' },
-          { label: 'Web Engagement', value: '+22%', detail: 'Better response to the refreshed presentation' }
-        ],
-        testimonial: {
-          quote: 'The refresh gave the company a more serious, more premium edge without losing personality.',
-          author: 'Mina Patel',
-          role: 'Marketing Director, Vector Loop'
-        },
-        highlight: 'Refresh, product voice, system scale.'
-      }
-    ]
+    projects: [],
+    comingSoon: {
+      headline: 'Brand Identity Systems Coming Soon',
+      subtext: 'Strategic identity design, visual systems, and premium brand direction projects are currently in development.'
+    }
   },
   {
     key: 'content-creation',
@@ -595,86 +593,11 @@ export const portfolioCategories: PortfolioCategory[] = [
     intro: 'Social grids, carousel structures, and content systems built for consistent output.',
     layout: 'social',
     summary: 'Content frameworks that combine premium social design with repeatable systems for everyday brand growth.',
-    projects: [
-      {
-        category: 'content-creation',
-        slug: 'social-growth-system',
-        title: 'Social Growth System',
-        client: 'Bloom Skincare',
-        year: '2026',
-        ...imageSets.social,
-        summary: 'A content engine for social media that turned educational posts into a premium visual cadence.',
-        problem: 'The team was posting often but lacked a structured visual pattern.',
-        goals: ['Improve consistency', 'Increase saves', 'Strengthen educational content'],
-        challenges: ['Many message types', 'Inconsistent design', 'Audience fatigue'],
-        strategy: {
-          marketing: 'Built content pillars that aligned brand education with product discovery.',
-          design: 'Created a social grid system with clean cards, image balance, and subtle motion.',
-          growth: 'Organized posts into repeatable series for faster publishing.',
-          content: 'Developed carousel templates, reels covers, and story sets.'
-        },
-        process: [
-          { title: 'Pillars', copy: 'Defined the content categories and publishing cadence.' },
-          { title: 'Templates', copy: 'Created reusable layouts for carousels and reels.' },
-          { title: 'Publish', copy: 'Launched the content engine and measured saves and reach.' }
-        ],
-        visuals: [
-          { title: 'Social Grid', copy: 'A multi-tile content wall for the feed.' },
-          { title: 'Carousel Frames', copy: 'Educational slides with premium spacing.' },
-          { title: 'Story Covers', copy: 'Branded story and reel cover visuals.' }
-        ],
-        results: [
-          { label: 'Saves', value: '+43%', detail: 'Higher save rate on educational posts' },
-          { label: 'Reach', value: '+27%', detail: 'Organic visibility improved across the grid' },
-          { label: 'Publishing Speed', value: '+38%', detail: 'Faster content production with templates' }
-        ],
-        testimonial: {
-          quote: 'The content finally looked coordinated. We could post more often without the feed feeling messy.',
-          author: 'Talia Green',
-          role: 'Brand Lead, Bloom Skincare'
-        },
-        highlight: 'Carousels, grid systems, story sets.'
-      },
-      {
-        category: 'content-creation',
-        slug: 'creator-content-kit',
-        title: 'Creator Content Kit',
-        client: 'Studio North',
-        year: '2025',
-        ...imageSets.creator,
-        summary: 'A content pack for a creator brand focused on launch posts, cover art, and recurring series.',
-        problem: 'Their posts were visually strong in isolation but lacked a repeatable system.',
-        goals: ['Build consistency', 'Support launches', 'Create content series'],
-        challenges: ['Multiple content formats', 'Frequent deadlines', 'Need for premium visuals'],
-        strategy: {
-          marketing: 'Designed content pillars around launches, behind-the-scenes, and insights.',
-          design: 'Used a modular grid with bold type and adaptable cover formats.',
-          growth: 'Prepared a system for weekly releases and fast creative production.',
-          content: 'Created templates for posts, stories, thumbnails, and carousels.'
-        },
-        process: [
-          { title: 'Plan', copy: 'Outlined the recurring content formats and launch needs.' },
-          { title: 'Design', copy: 'Built templates that could scale across topics.' },
-          { title: 'Deliver', copy: 'Exported a kit for rapid publishing and brand consistency.' }
-        ],
-        visuals: [
-          { title: 'Cover System', copy: 'A thumbnail and cover family with strong recognition.' },
-          { title: 'Carousel Kit', copy: 'Reusable educational and launch slides.' },
-          { title: 'Content Board', copy: 'Organized production board and theme previews.' }
-        ],
-        results: [
-          { label: 'Consistency', value: 'Strong', detail: 'Unified visual cadence across weekly posts' },
-          { label: 'Production Time', value: '-31%', detail: 'Less time spent creating new assets' },
-          { label: 'Audience Response', value: '+21%', detail: 'Higher engagement on launch and insight posts' }
-        ],
-        testimonial: {
-          quote: 'The kit made content production feel much easier. Everything now looks like it belongs to the same brand.',
-          author: 'Noah Reed',
-          role: 'Founder, Studio North'
-        },
-        highlight: 'Series design, thumbnail systems, launches.'
-      }
-    ]
+    projects: [],
+    comingSoon: {
+      headline: 'Content Systems Coming Soon',
+      subtext: 'Social-first campaigns, cinematic content direction, and motion-led storytelling projects will be added soon.'
+    }
   }
 ];
 

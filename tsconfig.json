@@ -13,16 +13,22 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "app/**/*.{ts,tsx}",
+    "components/**/*.{ts,tsx}",
+    "sections/**/*.{ts,tsx}",
+    "lib/**/*.{ts,tsx}",
+    "builder/**/*.{ts,tsx}",
+    "hooks/**/*.{ts,tsx}",
+    "types/**/*.ts",
+    "vite-env.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

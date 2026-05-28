@@ -82,16 +82,17 @@ export default function PortfolioIndexView({ onPreview }: PortfolioIndexProps) {
               </div>
 
               <div className={`mt-8 grid gap-4 ${category.layout === 'analytics' ? 'md:grid-cols-3' : category.layout === 'masonry' ? 'md:grid-cols-3 md:auto-rows-[190px]' : category.layout === 'cinematic' ? 'md:grid-cols-2' : category.layout === 'browser' ? 'md:grid-cols-2' : category.layout === 'editorial' ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
-                {category.projects.map((project, projectIndex) => (
-                  <motion.button
-                    key={project.slug}
-                    onClick={() => onPreview?.(`${category.href}/${project.slug}`)}
-                    whileHover={{ y: -4, scale: 1.01 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`group text-left rounded-[28px] border border-[rgba(255,255,255,0.35)] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.52))] p-5 shadow-[0_25px_80px_rgba(0,0,0,0.1)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.14)] ${
-                      category.layout === 'analytics' && projectIndex === 0 ? 'md:col-span-2' : ''
-                    } ${category.layout === 'masonry' && projectIndex === 0 ? 'md:row-span-2' : ''} ${category.layout === 'cinematic' ? 'bg-[linear-gradient(180deg,#061B3A,#08101f)] text-white' : ''}`}
-                  >
+                {category.projects.length > 0 ? (
+                  category.projects.map((project, projectIndex) => (
+                    <motion.button
+                      key={project.slug}
+                      onClick={() => onPreview?.(`${category.href}/${project.slug}`)}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`group text-left rounded-[28px] border border-[rgba(255,255,255,0.35)] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.52))] p-5 shadow-[0_25px_80px_rgba(0,0,0,0.1)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.14)] ${
+                        category.layout === 'analytics' && projectIndex === 0 ? 'md:col-span-2' : ''
+                      } ${category.layout === 'masonry' && projectIndex === 0 ? 'md:row-span-2' : ''} ${category.layout === 'cinematic' ? 'bg-[linear-gradient(180deg,#061B3A,#08101f)] text-white' : ''}`}
+                    >
                       <div className={`flex h-full flex-col justify-between gap-6 ${category.layout === 'browser' ? 'min-h-[260px]' : 'min-h-[200px]'}`}>
                         <div className="overflow-hidden rounded-[22px] border border-current/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
                           <DynamicImage
@@ -101,17 +102,55 @@ export default function PortfolioIndexView({ onPreview }: PortfolioIndexProps) {
                             imageClassName="transition-transform duration-700 group-hover:scale-105"
                           />
                         </div>
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <p className={`font-groove text-[11px] uppercase tracking-[0.34em] ${category.layout === 'cinematic' ? 'text-white/88' : 'text-black/72'}`}>{project.client}</p>
-                          <h3 className={`mt-4 font-display text-4xl uppercase leading-[0.9] tracking-[0.1em] ${category.layout === 'cinematic' ? 'text-white text-shadow-soft' : 'text-on-light'}`}>{project.title}</h3>
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className={`font-groove text-[11px] uppercase tracking-[0.34em] ${category.layout === 'cinematic' ? 'text-white/88' : 'text-black/72'}`}>{project.client}</p>
+                            <h3 className={`mt-4 font-display text-4xl uppercase leading-[0.9] tracking-[0.1em] ${category.layout === 'cinematic' ? 'text-white text-shadow-soft' : 'text-on-light'}`}>{project.title}</h3>
+                          </div>
+                          <span className={`text-xs uppercase tracking-[0.28em] ${category.layout === 'cinematic' ? 'text-white/88' : 'text-black/68'}`}>{project.year}</span>
                         </div>
-                        <span className={`text-xs uppercase tracking-[0.28em] ${category.layout === 'cinematic' ? 'text-white/88' : 'text-black/68'}`}>{project.year}</span>
+                        <p className={`text-sm leading-7 ${category.layout === 'cinematic' ? 'text-white/92' : 'text-black/82'}`}>{project.summary}</p>
                       </div>
-                      <p className={`text-sm leading-7 ${category.layout === 'cinematic' ? 'text-white/92' : 'text-black/82'}`}>{project.summary}</p>
-                    </div>
-                  </motion.button>
-                ))}
+                    </motion.button>
+                  ))
+                ) : (
+                  Array.from({ length: category.layout === 'editorial' ? 2 : 3 }).map((_, placeholderIndex) => (
+                    <motion.article
+                      key={`${category.key}-coming-soon-${placeholderIndex}`}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6, delay: placeholderIndex * 0.06 }}
+                      className="group rounded-[28px] border border-black/[0.06] bg-[linear-gradient(180deg,rgba(255,255,255,0.76),rgba(255,255,255,0.52))] p-5 shadow-[0_25px_80px_rgba(0,0,0,0.1)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.14)]"
+                    >
+                      <div className={`flex h-full flex-col justify-between gap-5 ${category.layout === 'browser' ? 'min-h-[260px]' : 'min-h-[200px]'}`}>
+                        <div className="overflow-hidden rounded-[22px] border border-black/[0.06] bg-[linear-gradient(135deg,rgba(6,27,58,0.08),rgba(255,159,10,0.08))] p-4">
+                          <div className="rounded-[18px] border border-black/[0.05] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.55),transparent_35%),linear-gradient(180deg,rgba(255,255,255,0.3),rgba(255,255,255,0.12))] p-4 backdrop-blur-[10px]">
+                            <div className="flex items-center justify-between gap-3">
+                              <span className="rounded-full border border-black/[0.08] bg-[rgba(255,255,255,0.72)] px-3 py-1 font-groove text-[10px] uppercase tracking-[0.28em] text-black/68">
+                                Launching Soon
+                              </span>
+                              <span className="text-[10px] uppercase tracking-[0.24em] text-black/58">Preview</span>
+                            </div>
+                            <div className="mt-6 grid grid-cols-3 gap-3 opacity-75 blur-[1px]">
+                              <div className="h-20 rounded-[16px] bg-[linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.18))]" />
+                              <div className="h-20 rounded-[16px] bg-[linear-gradient(180deg,rgba(255,255,255,0.52),rgba(255,255,255,0.08))]" />
+                              <div className="h-20 rounded-[16px] bg-[linear-gradient(180deg,rgba(6,27,58,0.14),rgba(255,255,255,0.1))]" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className="font-groove text-[11px] uppercase tracking-[0.34em] text-black/72">{category.comingSoon?.headline ?? 'Launching Soon'}</p>
+                            <h3 className="mt-4 font-display text-4xl uppercase leading-[0.9] tracking-[0.1em] text-on-light">Coming Soon</h3>
+                          </div>
+                          <span className="text-xs uppercase tracking-[0.28em] text-black/68">{category.layout === 'social' ? '03' : '02'}</span>
+                        </div>
+                        <p className="text-sm leading-7 text-black/82">{category.comingSoon?.subtext ?? 'Premium projects are in development and will be added here soon.'}</p>
+                      </div>
+                    </motion.article>
+                  ))
+                )}
               </div>
             </div>
           </motion.article>

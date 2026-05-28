@@ -47,7 +47,7 @@ export default function DynamicGallery({ title, images }: DynamicGalleryProps) {
 
   return (
     <>
-      <div className="columns-1 gap-4 space-y-4 md:columns-2 xl:columns-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {images.map((image, index) => (
           <motion.button
             key={`${title}-${index}`}
@@ -55,7 +55,7 @@ export default function DynamicGallery({ title, images }: DynamicGalleryProps) {
             onClick={() => setActiveIndex(index)}
             whileHover={{ y: -6, scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
-            className={`group block w-full break-inside-avoid overflow-hidden rounded-[28px] border border-black/[0.06] bg-[rgba(255,255,255,0.42)] shadow-sm ${index % 3 === 0 ? 'aspect-[4/5]' : index % 3 === 1 ? 'aspect-[5/4]' : 'aspect-[1/1]'}`}
+            className="group block w-full overflow-hidden rounded-[28px] border border-black/[0.06] bg-[rgba(255,255,255,0.42)] shadow-sm aspect-[4/5]"
           >
             <DynamicImage
               src={image}
